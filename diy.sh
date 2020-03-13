@@ -27,3 +27,6 @@ sed -i 's/config internal themes/config internal themes\n    option Argon  \"\/l
 # 修改时区
 sed -i "s/'UTC'/'CST-8'\n        set system.@system[-1].zonename='Asia\/Shanghai'/g" package/base-files/files/bin/config_generate
 
+echo '删除旧版argon,链接新版'
+rm -rf ./package/lean/luci-theme-argon
+ln -s ../../../luci-theme-argon ./package/lean/
