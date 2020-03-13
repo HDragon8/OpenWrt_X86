@@ -34,4 +34,4 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.RElEASE_TOKEN }}
       with:
         tag_name: ${{ env.RELEASE_TAG }}
-        body: 🚀 build OpenWrt | 编译OpenWrt for NewifiD2
+        body: 🚀 build OpenWrt | 编译OpenWrt x86
