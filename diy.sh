@@ -9,7 +9,7 @@
 # https://github.com/destan19/GDOCK/blob/master/diy.sh
 #=================================================
 # Modify default IP
-sed -i 's/192.168.1.1/192.168.30.1/g' package/base-files/files/bin/config_generate
+#sed -i 's/192.168.1.1/192.168.30.1/g' package/base-files/files/bin/config_generate
 
 # Modify default hostname
 sed -i 's/OpenWrt/noodles/g' package/base-files/files/bin/config_generate
@@ -22,11 +22,11 @@ sed -i 's/OpenWrt/noodles build $(date "+%Y.%m.%d") @ OpenWrt/g' package/lean/de
 
 # Modify default theme
 #sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
-sed -i 's/config internal themes/config internal themes\n    option Argon  \"\/luci-static\/argon\"/g' feeds/luci/modules/luci-base/root/etc/config/luci
+#sed -i 's/config internal themes/config internal themes\n    option Argon  \"\/luci-static\/argon\"/g' feeds/luci/modules/luci-base/root/etc/config/luci
 
 # 修改时区
-sed -i "s/'UTC'/'CST-8'\n        set system.@system[-1].zonename='Asia\/Shanghai'/g" package/base-files/files/bin/config_generate
+#sed -i "s/'UTC'/'CST-8'\n        set system.@system[-1].zonename='Asia\/Shanghai'/g" package/base-files/files/bin/config_generate
 
-echo '删除旧版argon,链接新版'
-rm -rf ./package/lean/luci-theme-argon
-ln -s ../../../luci-theme-argon ./package/lean/
+#echo '删除旧版argon,链接新版'
+#rm -rf ./package/lean/luci-theme-argon
+#ln -s ../../../luci-theme-argon ./package/lean/
