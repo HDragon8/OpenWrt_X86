@@ -5,9 +5,11 @@
 # Author: P3TERX
 # Blog: https://p3terx.com
 # OpenAppFilter source code from https://github.com/destan19/OpenAppFilter
+# 添加luci-theme-argon-mc主题 https://github.com/sypopo/luci-theme-argon-mc
+# 添加去广告模块koolproxyR https://github.com/Leo-Jo/luci-app-koolproxyR
 #=================================================
 
-name: Build OpenWrt
+name: Build OpenWrt x86_64
 
 on:
   release:
@@ -65,6 +67,12 @@ jobs:
 
     - name: Clone OpenAppFilter source code
       run: cd openwrt/package && git clone https://github.com/destan19/OpenAppFilter.git
+      
+    - name: Clone luci-theme-argon-mc
+      run: cd openwrt/package/lean && git clone https://github.com/HDragon8/luci-theme-argon-mc
+      
+    - name: Clone koolproxyR source code
+      run: cd openwrt/package && git clone https://github.com/Leo-Jo/luci-app-koolproxyR 
 
     - name: Load custom configuration
       run: |
