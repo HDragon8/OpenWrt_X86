@@ -68,8 +68,8 @@ jobs:
     - name: Clone OpenAppFilter source code
       run: cd openwrt/package && git clone https://github.com/destan19/OpenAppFilter.git
       
-    - name: Clone luci-theme-argon-mc
-      run: cd openwrt/package/lean && git clone https://github.com/HDragon8/luci-theme-argon-mc
+    - name: 我的Argon主题
+      run: cd openwrt/package/lean && git clone https://github.com/HDragon8/luci-theme-argon-noodles
       
     - name: Clone koolproxyR source code
       run: cd openwrt/package && git clone https://github.com/Leo-Jo/luci-app-koolproxyR 
