@@ -1,5 +1,5 @@
 # Actions-OpenWrt
-# OpenWrt firmware for Newifi D2
+# OpenWrt firmware for x86_64
 Thanks https://github.com/P3TERX/Actions-OpenWrt
 
 
