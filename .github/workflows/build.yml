@@ -70,6 +70,12 @@ jobs:
       
     - name: 我的主题
       run: cd openwrt/package/lean && git clone https://github.com/HDragon8/luci-theme-noodles
+
+    - name: Butterfly主题
+      run: |
+        cd openwrt/package/lean
+        git clone https://github.com/Leo-Jo-My/luci-theme-Butterfly
+        git clone https://github.com/Leo-Jo-My/luci-theme-Butterfly-dark
       
     - name: Clone koolproxyR source code
       run: cd openwrt/package && git clone https://github.com/Leo-Jo/luci-app-koolproxyR 
