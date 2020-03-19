@@ -72,7 +72,7 @@ jobs:
       run: cd openwrt/package/lean && git clone https://github.com/HDragon8/luci-theme-noodles
 
     - name: luci-app-serverchan 
-      run: cd openwrt/package/lean && https://github.com/HDragon8/luci-app-serverchan      
+      run: cd openwrt/package/lean && git clone https://github.com/HDragon8/luci-app-serverchan      
 
     - name: Butterfly主题
       run: |
