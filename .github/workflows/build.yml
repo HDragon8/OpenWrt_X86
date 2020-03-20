@@ -7,6 +7,8 @@
 # OpenAppFilter source code from https://github.com/destan19/OpenAppFilter
 # 添加luci-theme-argon-mc主题 https://github.com/sypopo/luci-theme-argon-mc
 # 添加去广告模块koolproxyR https://github.com/Leo-Jo/luci-app-koolproxyR
+# 添加微信推送 https://github.com/tty228/luci-app-serverchan
+# 添加luci概况天气参考https://github.com/openwrtcompileshell/OpenwrtCompileScript
 #=================================================
 
 name: Build OpenWrt x86_64
