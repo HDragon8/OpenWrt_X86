@@ -5,8 +5,10 @@
 # Author: P3TERX
 # Blog: https://p3terx.com
 # OpenAppFilter source code from https://github.com/destan19/OpenAppFilter
-# ����luci-theme-argon-mc���� https://github.com/sypopo/luci-theme-argon-mc
-# ����ȥ���ģ��koolproxyR https://github.com/Leo-Jo/luci-app-koolproxyR
+# 添加luci-theme-argon-mc主题 https://github.com/sypopo/luci-theme-argon-mc
+# 添加去广告模块koolproxyR https://github.com/Leo-Jo/luci-app-koolproxyR
+# 添加微信推送 https://github.com/tty228/luci-app-serverchan
+# 添加luci概况天气参考https://github.com/openwrtcompileshell/OpenwrtCompileScript
 #=================================================
 
 name: Build OpenWrt x86_64
@@ -27,9 +29,9 @@ on:
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
-  CONFIG_FILE: x64.config
+  CONFIG_FILE: .config
   DIY_SH: diy.sh
-  SSH_ACTIONS: false
+  SSH_ACTIONS: true
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   UPLOAD_RELEASE: true
@@ -68,11 +70,23 @@ jobs:
     - name: Clone OpenAppFilter source code
       run: cd openwrt/package && git clone https://github.com/destan19/OpenAppFilter.git
       
-    - name: Clone luci-theme-argon-mc
-      run: cd openwrt/package/lean && git clone https://github.com/HDragon8/luci-theme-argon-mc
+    - name: 我的主题
+      run: cd openwrt/package/lean && git clone https://github.com/HDragon8/luci-theme-noodles
+
+#    - name: clone luci-app-serverchan 
+#      run: cd openwrt/package && git clone https://github.com/HDragon8/luci-app-serverchan      
+
+    - name: Butterfly主题
+      run: |
+        cd openwrt/package/lean
+        git clone https://github.com/Leo-Jo-My/luci-theme-Butterfly
+        git clone https://github.com/Leo-Jo-My/luci-theme-Butterfly-dark
       
     - name: Clone koolproxyR source code
       run: cd openwrt/package && git clone https://github.com/Leo-Jo/luci-app-koolproxyR 
+      
+    - name: index添加天气
+      run: cd openwrt && git clone https://github.com/HDragon8/noodlesindex      
 
     - name: Load custom configuration
       run: |
