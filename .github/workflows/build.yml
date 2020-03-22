@@ -71,7 +71,10 @@ jobs:
       run: cd openwrt/package && git clone https://github.com/destan19/OpenAppFilter.git
       
     - name: 我的主题
-      run: cd openwrt/package/lean && git clone https://github.com/HDragon8/luci-theme-noodles
+      run: |
+        cd openwrt/package/lean
+        git clone https://github.com/HDragon8/luci-theme-noodles
+        git clone https://github.com/HDragon8/luci-theme-argon-noodles
 
 #    - name: clone luci-app-serverchan 
 #      run: cd openwrt/package && git clone https://github.com/HDragon8/luci-app-serverchan      
