@@ -11,10 +11,10 @@
 # 参考https://github.com/openwrtcompileshell/OpenwrtCompileScript
 #=================================================
 # Modify default IP
-#sed -i 's/192.168.1.1/192.168.30.1/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/192.168.1.5/g' package/base-files/files/bin/config_generate
 
 # Modify default hostname
-sed -i 's/OpenWrt/noodles/g' package/base-files/files/bin/config_generate
+sed -i 's/OpenWrt/noodles@x86_64/g' package/base-files/files/bin/config_generate
 
 # Modify default WiFi SSID
 sed -i 's/OpenWrt/noodles/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
