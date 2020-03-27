@@ -31,7 +31,7 @@ env:
   REPO_BRANCH: master
   CONFIG_FILE: .config
   DIY_SH: diy.sh
-  SSH_ACTIONS: true
+  SSH_ACTIONS: false
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   UPLOAD_RELEASE: true
@@ -46,7 +46,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@master
 
-    - name: Initialization environment
+    - name: 编译环境搭建
       env:
         DEBIAN_FRONTEND: noninteractive
       run: |
@@ -58,7 +58,7 @@ jobs:
         sudo -E apt-get -qq clean
 #        curl -fsSL https://raw.githubusercontent.com/P3TERX/dotfiles/master/.bashrc >> ~/.bashrc
 
-    - name: Clone source code
+    - name: Clone Lean's OpenWrt源码
       run: git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
 
     - name: Update feeds
@@ -67,31 +67,25 @@ jobs:
     - name: Install feeds
       run: cd openwrt && ./scripts/feeds install -a
 
-    - name: Clone OpenAppFilter source code
-      run: cd openwrt/package && git clone https://github.com/destan19/OpenAppFilter.git
+    - name: 应用限制/微信推送/去广告koolproxyR 
+      run: |
+       cd openwrt/package
+       git clone https://github.com/destan19/OpenAppFilter.git
+       git clone https://github.com/HDragon8/luci-app-serverchan
+       git clone https://github.com/Leo-Jo/luci-app-koolproxyR 
       
-    - name: 我的主题
+    - name: 我的主题/Butterfly主题
       run: |
         cd openwrt/package/lean
         git clone https://github.com/HDragon8/luci-theme-noodles
-        git clone https://github.com/HDragon8/luci-theme-argon-noodles
-
-#    - name: clone luci-app-serverchan 
-#      run: cd openwrt/package && git clone https://github.com/HDragon8/luci-app-serverchan      
-
-    - name: Butterfly主题
-      run: |
-        cd openwrt/package/lean
+        git clone https://github.com/HDragon8/luci-theme-argon-noodles    
         git clone https://github.com/Leo-Jo-My/luci-theme-Butterfly
         git clone https://github.com/Leo-Jo-My/luci-theme-Butterfly-dark
-      
-    - name: Clone koolproxyR source code
-      run: cd openwrt/package && git clone https://github.com/Leo-Jo/luci-app-koolproxyR 
       
     - name: index添加天气
       run: cd openwrt && git clone https://github.com/HDragon8/noodlesindex      
 
-    - name: Load custom configuration
+    - name: 加载自定义设置
       run: |
         [ -e files ] && mv files openwrt/files
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
@@ -103,7 +97,7 @@ jobs:
       uses: HDragon8/debugger-action@master
       if: env.SSH_ACTIONS == 'true'
 
-    - name: Download package
+    - name: 下载插件包
       id: package
       run: |
         cd openwrt
@@ -112,7 +106,7 @@ jobs:
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
 
-    - name: Compile the firmware
+    - name: 固件编译
       id: compile
       run: |
         cd openwrt
