@@ -72,7 +72,7 @@ jobs:
        cd openwrt/package
        git clone https://github.com/destan19/OpenAppFilter.git
        git clone https://github.com/HDragon8/luci-app-serverchan
-       git clone https://github.com/Leo-Jo/luci-app-koolproxyR 
+#       git clone https://github.com/Leo-Jo/luci-app-koolproxyR 
       
     - name: 我的主题/Butterfly主题
       run: |
